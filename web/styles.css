@@ -146,176 +146,6 @@ a:hover {
   animation: blink 1.2s ease-in-out infinite;
 }
 
-/* ==================== */
-/* COOL EFFECTS         */
-/* ==================== */
-
-/* Typing animation for main title */
-@keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
-}
-
-@keyframes blink-caret {
-  0%, 100% { border-color: transparent; }
-  50% { border-color: #58a6ff; }
-}
-
-.main-title {
-  overflow: hidden;
-  white-space: nowrap;
-  border-right: 3px solid #58a6ff;
-  animation: 
-    typing 2s steps(12, end) forwards,
-    blink-caret 0.8s step-end infinite;
-  width: 0;
-  display: inline-block;
-}
-
-/* Animated gradient background */
-@keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    -45deg,
-    #0d1117 0%,
-    #161b22 25%,
-    #0d1117 50%,
-    #1a1f29 75%,
-    #0d1117 100%
-  );
-  background-size: 400% 400%;
-  animation: gradient-shift 15s ease infinite;
-  z-index: -2;
-  pointer-events: none;
-}
-
-/* CRT Scanlines effect */
-body::after {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: repeating-linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.1) 0px,
-    rgba(0, 0, 0, 0.1) 1px,
-    transparent 1px,
-    transparent 2px
-  );
-  pointer-events: none;
-  z-index: 1000;
-  opacity: 0.3;
-}
-
-/* Glowing section headers on hover */
-.section-header {
-  transition: all 0.3s ease;
-  cursor: default;
-}
-
-.section-header:hover .section-title {
-  text-shadow: 0 0 10px #d29922, 0 0 20px #d29922, 0 0 30px #d2992280;
-}
-
-.section-header:hover .prompt {
-  text-shadow: 0 0 10px #7ee787, 0 0 20px #7ee787;
-}
-
-/* Glow effect on project titles */
-.project-title {
-  transition: text-shadow 0.3s ease;
-}
-
-.project:hover .project-title {
-  text-shadow: 0 0 8px #7ee787, 0 0 15px #7ee78780;
-}
-
-/* Floating animation for status indicator */
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-3px); }
-}
-
-.status-indicator {
-  animation: pulse 2s ease-in-out infinite, float 3s ease-in-out infinite;
-  display: inline-block;
-}
-
-/* Subtle glow on links */
-a {
-  transition: all 0.3s ease;
-}
-
-a:hover {
-  text-shadow: 0 0 8px #58a6ff;
-}
-
-/* Terminal glow effect */
-.terminal {
-  box-shadow: 
-    0 0 20px rgba(88, 166, 255, 0.1),
-    0 0 40px rgba(88, 166, 255, 0.05),
-    inset 0 0 60px rgba(0, 0, 0, 0.3);
-}
-
-/* Flickering effect on connect box border (subtle) */
-@keyframes border-flicker {
-  0%, 100% { border-color: #30363d; }
-  50% { border-color: #3d444d; }
-}
-
-.connect-box {
-  animation: border-flicker 4s ease-in-out infinite;
-}
-
-/* Tech stack items glow on hover */
-.tech-line {
-  transition: all 0.3s ease;
-  cursor: default;
-}
-
-.tech-line:hover {
-  color: #58a6ff;
-  text-shadow: 0 0 5px #58a6ff40;
-  padding-left: 5px;
-}
-
-/* Entrance animation for sections */
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.section {
-  animation: fade-in-up 0.6s ease-out forwards;
-}
-
-.section:nth-child(1) { animation-delay: 0.1s; }
-.section:nth-child(2) { animation-delay: 0.2s; }
-.section:nth-child(3) { animation-delay: 0.3s; }
-.section:nth-child(4) { animation-delay: 0.4s; }
-.section:nth-child(5) { animation-delay: 0.5s; }
-.section:nth-child(6) { animation-delay: 0.6s; }
-
 /* Gentle pulsing status indicator */
 @keyframes pulse {
   0%, 100% {
@@ -689,29 +519,16 @@ a:focus {
 /* Reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
   .cursor-blink,
-  .status-indicator,
-  .main-title,
-  .section,
-  .connect-box,
-  body::before {
-    animation: none !important;
-  }
-  
-  .main-title {
-    width: auto !important;
-    border-right: none !important;
+  .status-indicator {
+    animation: none;
   }
   
   html {
     scroll-behavior: auto;
   }
   
-  a, .project, .connect-box, .tech-line, .section-header {
+  a, .project, .connect-box {
     transition: none;
-  }
-  
-  body::after {
-    display: none;
   }
 }
 
