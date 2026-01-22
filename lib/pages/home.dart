@@ -61,15 +61,19 @@ class Home extends StatelessComponent {
       div(classes: 'connect-box', [
         div(classes: 'connect-row', [
           div(classes: 'connect-item', [
-            span(classes: 'icon', [Component.text('[@]')]),
-            span(classes: 'connect-label', [Component.text(' EMAIL : ')]),
-            a(href: 'mailto:abhanisujal@gmail.com', [Component.text('abhanisujal@gmail.com')]),
+            span(classes: 'connect-header', [
+              span(classes: 'icon', [Component.text('[@]')]),
+              span(classes: 'connect-label', [Component.text('EMAIL')]),
+            ]),
+            a(classes: 'connect-value', href: 'mailto:abhanisujal@gmail.com', [Component.text('abhanisujal@gmail.com')]),
           ]),
           div(classes: 'connect-divider', [Component.text('|')]),
           div(classes: 'connect-item', [
-            span(classes: 'icon', [Component.text('[#]')]),
-            span(classes: 'connect-label', [Component.text(' PHONE : ')]),
-            a(href: 'tel:+919974332212', [Component.text('+91 9974332212')]),
+            span(classes: 'connect-header', [
+              span(classes: 'icon', [Component.text('[#]')]),
+              span(classes: 'connect-label', [Component.text('PHONE')]),
+            ]),
+            a(classes: 'connect-value', href: 'tel:+919974332212', [Component.text('+91 9974332212')]),
           ]),
         ]),
       ]),

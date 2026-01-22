@@ -82,6 +82,24 @@ body {
   border-color: #58a6ff;
 }
 
+/* Connect item structure */
+.connect-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.connect-header::after {
+  content: ':';
+  color: #6e7681;
+  margin-left: 3px;
+}
+
+.connect-value {
+  white-space: nowrap;
+}
+
 /* Project description styling */
 .project-description {
   font-style: italic;
@@ -241,13 +259,24 @@ a:focus {
   
   .connect-row {
     flex-direction: column;
-    gap: 12px;
+    gap: 15px;
     align-items: flex-start;
   }
   
   .connect-item {
-    flex-wrap: wrap;
-    gap: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-start;
+  }
+  
+  .connect-header {
+    font-size: 11px !important;
+  }
+  
+  .connect-value {
+    font-size: 14px !important;
+    padding-left: 2px;
   }
   
   .connect-divider {
@@ -339,13 +368,18 @@ a:focus {
   .connect-box {
     margin-left: 5px !important;
     margin-right: 5px !important;
+    padding: 10px !important;
+  }
+  
+  .connect-header {
+    font-size: 10px !important;
   }
   
   .connect-label {
-    font-size: 11px !important;
+    font-size: 10px !important;
   }
   
-  .connect-item a {
+  .connect-value {
     font-size: 13px !important;
   }
   
