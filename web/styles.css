@@ -1,0 +1,210 @@
+/* Professional Terminal Portfolio Styles */
+
+/* Box sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Ensure body allows scrolling */
+html {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Matrix canvas styling */
+#matrix-rain-canvas {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
+  display: block !important;
+}
+
+/* Terminal content - ensure it's above the canvas */
+.terminal {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(13, 17, 23, 0.92) 0%,
+    rgba(13, 17, 23, 0.88) 50%,
+    rgba(13, 17, 23, 0.92) 100%
+  );
+  border-radius: 8px;
+  backdrop-filter: blur(1px);
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  .terminal {
+    padding: 10px !important;
+    margin: 20px auto !important;
+  }
+  
+  .profile-line {
+    flex-direction: column;
+  }
+  
+  .label {
+    min-width: auto !important;
+    margin-bottom: 2px;
+  }
+  
+  .connect-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .connect-divider {
+    display: none;
+  }
+  
+  .main-title {
+    font-size: 24px !important;
+    letter-spacing: 2px !important;
+  }
+  
+  .subtitle {
+    font-size: 16px !important;
+  }
+}
+
+/* Profile line flex wrap */
+.profile-line {
+  flex-wrap: wrap;
+}
+
+/* Connect row styling */
+.connect-row {
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+}
+
+.connect-item {
+  align-items: center;
+}
+
+/* Project description styling */
+.project-description {
+  font-style: italic;
+  opacity: 0.9;
+}
+
+/* Project left border */
+.project {
+  border-left: 2px solid #30363d;
+  transition: border-color 0.2s ease;
+}
+
+.project:hover {
+  border-color: #58a6ff;
+}
+
+/* Link styling */
+a {
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Scrollbar border radius */
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+}
+
+/* Subtle blinking cursor animation */
+@keyframes blink {
+  0%, 50% {
+    opacity: 0.8;
+  }
+  51%, 100% {
+    opacity: 0.2;
+  }
+}
+
+.cursor-blink {
+  animation: blink 1.2s ease-in-out infinite;
+}
+
+/* Gentle pulsing status indicator */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.status-indicator {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles for accessibility */
+a:focus {
+  outline: 2px solid #58a6ff;
+  outline-offset: 2px;
+}
+
+/* Subtle connect box hover */
+.connect-box {
+  transition: border-color 0.2s ease;
+  background: rgba(13, 17, 23, 0.85);
+}
+
+.connect-box:hover {
+  border-color: #58a6ff;
+}
+
+/* Improve text rendering */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Header section styling */
+.header-section {
+  border-bottom: 1px solid #30363d;
+  padding-bottom: 20px !important;
+  margin-bottom: 30px !important;
+}
+
+/* Subtle glow on main title */
+.main-title {
+  text-shadow: 0 0 40px rgba(86, 212, 221, 0.15);
+}
+
+/* Section dividers */
+.section {
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(48, 54, 61, 0.5);
+}
+
+.section:last-of-type {
+  border-bottom: none;
+}
+
+/* Footer styling */
+.footer {
+  border-top: 1px solid #30363d;
+  padding-top: 20px;
+}
