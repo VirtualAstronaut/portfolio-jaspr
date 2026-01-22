@@ -31,8 +31,11 @@ void main() {
       'description': 'Senior Flutter Developer & Mobile Architect. Production-grade mobile apps for E-commerce, Workforce, Healthcare, and Digital Health.',
       'keywords': 'Flutter, Dart, Mobile Developer, Mobile Architect, Senior Developer, Remote, Freelance',
       'author': 'Sujal Abhani',
-      'viewport': 'width=device-width, initial-scale=1.0',
+      'viewport': 'width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover',
       'theme-color': '#0d1117',
+      'mobile-web-app-capable': 'yes',
+      'apple-mobile-web-app-capable': 'yes',
+      'apple-mobile-web-app-status-bar-style': 'black-translucent',
     },
     head: [
       // Link to external CSS
