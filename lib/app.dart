@@ -3,15 +3,40 @@ import 'package:jaspr/jaspr.dart';
 
 import 'constants/theme.dart';
 import 'pages/home.dart';
+import 'pages/modern_portfolio.dart';
+import 'pages/components/navigation.dart';
 
 @client
-class App extends StatelessComponent {
+class App extends StatefulComponent {
   const App({super.key});
 
   @override
+  State createState() => AppState();
+}
+
+class AppState extends State<App> {
+  String currentRoute = 'terminal';
+
+  void _handleRouteChange(String route) {
+    setState(() {
+      currentRoute = route;
+    });
+  }
+
+  @override
   Component build(BuildContext context) {
-    return div(classes: 'terminal', [
-      const Home(),
+    return div([
+      // Global Navigation
+      Navigation(
+        currentRoute: currentRoute,
+        onRouteChange: _handleRouteChange,
+      ),
+      
+      // Route Content
+      if (currentRoute == 'terminal')
+        div(classes: 'terminal', [const Home()])
+      else
+        const ModernPortfolio(),
     ]);
   }
 
@@ -31,7 +56,7 @@ class App extends StatelessComponent {
         FontFamily('SF Mono'),
         FontFamily('Consolas'),
         FontFamilies.monospace,
-      ]),
+      ]), 
       fontSize: 14.px,
       lineHeight: 1.7.em,
       minHeight: 100.vh,

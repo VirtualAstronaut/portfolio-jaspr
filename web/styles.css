@@ -552,3 +552,238 @@ a:focus {
     display: none;
   }
 }
+
+/* ============================================================================
+   MODERN PORTFOLIO STYLES
+   ============================================================================ */
+
+/* Smooth scrolling for modern portfolio */
+.modern-portfolio {
+  scroll-behavior: smooth;
+}
+
+/* Hero section animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply entrance animations */
+.hero-text {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.hero-stats {
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+/* Section entrance animations */
+section {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+.about-section { animation-delay: 0.1s; }
+.projects-section { animation-delay: 0.2s; }
+.skills-section { animation-delay: 0.3s; }
+.contact-section { animation-delay: 0.4s; }
+
+/* Button hover effects */
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+/* Project card hover effect */
+.project-card {
+  position: relative;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 20px;
+  padding: 2px;
+  background: linear-gradient(135deg, #6366F1, #8B5CF6);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+/* Skill bar animation */
+.skill-bar-fill {
+  animation: fillBar 1.5s ease-out forwards;
+  transform-origin: left;
+}
+
+@keyframes fillBar {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Tech tag hover effect */
+.tech-tag {
+  position: relative;
+  overflow: hidden;
+}
+
+.tech-tag::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #6366F1, #8B5CF6);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.tech-tag:hover::after {
+  transform: scaleX(1);
+}
+
+/* Navigation link underline animation */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #6366F1, #8B5CF6);
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  left: 0;
+  width: 100%;
+}
+
+/* Contact card hover glow */
+.contact-card:hover {
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+}
+
+/* Footer link hover */
+.footer-link {
+  position: relative;
+}
+
+.footer-link::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #6366F1;
+  transition: width 0.3s ease;
+}
+
+.footer-link:hover::before {
+  width: 100%;
+}
+
+/* Scrollbar styling for modern portfolio */
+.modern-portfolio::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modern-portfolio::-webkit-scrollbar-track {
+  background: #0F172A;
+}
+
+.modern-portfolio::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+
+.modern-portfolio::-webkit-scrollbar-thumb:hover {
+  background: #6366F1;
+}
+
+/* Reduced motion preference for modern portfolio */
+@media (prefers-reduced-motion: reduce) {
+  .hero-text,
+  .hero-stats,
+  section,
+  .skill-bar-fill {
+    animation: none;
+  }
+  
+  .modern-portfolio {
+    scroll-behavior: auto;
+  }
+  
+  .btn::before,
+  .project-card::before,
+  .tech-tag::after,
+  .nav-link::after,
+  .footer-link::before {
+    transition: none;
+  }
+}
+
+/* Print styles for modern portfolio */
+@media print {
+  .modern-portfolio,
+  .modern-nav {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .btn,
+  .project-link,
+  .contact-link {
+    color: black !important;
+    border: 1px solid black !important;
+  }
+  
+  .project-card,
+  .skill-category,
+  .contact-card {
+    break-inside: avoid;
+  }
+}
